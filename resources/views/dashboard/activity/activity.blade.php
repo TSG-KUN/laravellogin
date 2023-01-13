@@ -16,6 +16,7 @@
             <tbody>
                 <tr>
                     @foreach ($activities as $activity)
+                    {{-- CONTOH PENAMBAHAN/PERBAIKAN --}}
                     <td>{{ $activity->no }}</td>
                     <td> {{ $activity->namakeg }} </td>
                     <td> {{ $activity->tgl }} </td>

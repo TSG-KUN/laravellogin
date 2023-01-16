@@ -70,9 +70,12 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Activity $news)
     {
-        //
+        return view('dashboard.activity.edit', [
+            'activity' => $news,
+            "title" => "Edit",
+        ]);
     }
 
     /**
@@ -82,9 +85,20 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Activity $news)
     {
-        //
+        $validatedData = $request->validate([
+            'namakeg' => 'required|max:200',
+            'tgl' => 'required|date',
+            'tempat' => 'required|max:255',
+            'PJ' => 'required|max:200',
+            'biaya' => 'required|numeric',
+        ]);
+        //aksi masuk cuy
+        $validatedData ['id'] = auth()->user()->id;
+
+        Activity::where('id',$news->id)->update($validatedData);
+        return redirect('/dashboard/news')->with('success','Data Sukses Diedit');
     }
 
     /**
@@ -93,8 +107,9 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Activity $news)
     {
-        //
+        Activity::destroy($news->id);
+        return redirect('/dashboard/news')->with('success','Data Sukses Dibunuh');
     }
 }

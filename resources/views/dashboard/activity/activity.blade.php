@@ -31,6 +31,15 @@
                     <td> {{ $activity->tempat }} </td>
                     <td> {{ $activity->PJ }} </td>
                     <td> {{ $activity->biaya }} </td>
+                    <td>
+                        <a href="/dashboard/news/{{ $activity->id }}/edit" class="btn btn-warning"> <i class="lar la-edit"></i> </a>
+                        <form action="/dashboard/news/{{ $activity->id }}" method="POST" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger" onclick="return confirm('are you sure?')"> <i class="las la-trash"></i> </button>
+                        </form>
+                        {{-- <a href="" class="btn btn-danger"> <i class="las la-trash"></i> </a> --}}
+                    </td>
                 </tr>
                     @endforeach
             </tbody>

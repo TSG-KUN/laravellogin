@@ -25,7 +25,7 @@
                 <tr>
                     @foreach ($activities as $activity)
                     {{-- CONTOH PENAMBAHAN/PERBAIKAN --}}
-                    <td> {{ $loop->iteration }}</td>
+                    <td style="font-weight: bolder"> {{ $loop->iteration }}</td>
                     <td> {{ $activity->namakeg }} </td>
                     <td> {{ $activity->tgl }} </td>
                     <td> {{ $activity->tempat }} </td>

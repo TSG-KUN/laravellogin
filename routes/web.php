@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\ActivityController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardPostController;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,5 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         return view('dashboard.dash');
     })->name('index');
     Route::resource('news', ActivityController::class);
+    Route::resource('mahasiswa', MahasiswaController::class);
 });

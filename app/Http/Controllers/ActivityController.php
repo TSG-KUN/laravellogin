@@ -25,7 +25,9 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.activity.create', [
+            "title" => "Create",
+        ]);
     }
 
     /**
@@ -41,8 +43,14 @@ class ActivityController extends Controller
             'tgl' => 'required|date',
             'tempat' => 'required|max:255',
             'PJ' => 'required|max:200',
-            'biaya' => 'required|number',
+            'biaya' => 'required|numeric',
         ]);
+
+        //aksi masuk cuy
+        $validatedData ['id'] = auth()->user()->id;
+
+        Activity::create($validatedData);
+        return redirect('/dashboard/news')->with('success','Data Sukses Ditambahkan');
     }
 
     /**

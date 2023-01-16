@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->text('namakeg');
             $table->date('tgl');
-            $table->text('tempat');
-            $table->text('PJ');
-            $table->integer('biaya');
+            $table->text('tempat')->nullable();
+            $table->text('PJ')->nullable();
+            $table->integer('biaya')->nullable();
             $table->timestamps();
         });
     }

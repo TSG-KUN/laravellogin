@@ -30,10 +30,10 @@
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hi, {{ auth() -> user() -> username}}
+                    Hi, {{ auth()->user()->username}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="/dash">Dashboard</a>
+                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
                     <hr class="dropdown-divider">
                         <form action="/logout" method="POST">
                             @csrf
